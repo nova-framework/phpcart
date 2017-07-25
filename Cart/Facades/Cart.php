@@ -1,7 +1,7 @@
 <?php
-namespace Anam\Phpcart\Facades;
+namespace Shared\Cart\Facades;
 
-use Illuminate\Support\Facades\Facade;
+use Nova\Support\Facades\Facade;
 
 class Cart extends Facade
 {

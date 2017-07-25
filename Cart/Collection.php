@@ -1,10 +1,10 @@
-<?php 
-namespace Anam\Phpcart;
+<?php
+namespace Shared\Cart;
 
-use Illuminate\Support\Collection as IlluminateCollection;
+use Nova\Support\Collection as NovaCollection;
 use Exception;
 
-class Collection extends IlluminateCollection
+class Collection extends NovaCollection
 {
     /**
      * All items

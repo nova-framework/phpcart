@@ -1,5 +1,5 @@
 <?php
-namespace Anam\Phpcart;
+namespace Shared\Cart;
 
 use Exception;
 use InvalidArgumentException;
@@ -267,9 +267,9 @@ class Cart implements CartInterface
 
     /**
      * Clone a cart to another
-     * 
+     *
      * @param  mix $cart
-     * 
+     *
      * @return void
      */
 

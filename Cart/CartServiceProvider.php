@@ -1,14 +1,14 @@
 <?php
-namespace Anam\Phpcart;
+namespace Shared\Cart;
 
-use Illuminate\Support\ServiceProvider;
+use Nova\Support\ServiceProvider;
 
 class CartServiceProvider extends ServiceProvider
 {
     public function register()
     {
         $this->app->bind('cart', function() {
-            return new \Anam\Phpcart\Cart;
+            return new \Shared\Cart\Cart;
         });
     }
 }

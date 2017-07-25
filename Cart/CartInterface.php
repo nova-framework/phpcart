@@ -1,5 +1,5 @@
 <?php
-namespace Anam\Phpcart;
+namespace Shared\Cart;
 
 interface CartInterface
 {
