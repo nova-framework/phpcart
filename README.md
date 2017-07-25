@@ -1,44 +1,36 @@
 # PHPCart
 Simple framework agnostic shopping cart.
 
+This is been ported over from https://github.com/anam-hossain/phpcart this version has been configured to work with Nova Framework.
+
 ## Features
 
 - Simple API
 - Support multiple cart instances
-- Framework agnostic, with optional Laravel integration
+- Nova Framework integration
 
 ## Requirements
 
 - PHP 5.4+
 
 ## Installation
-PHPCart is available via Composer
+Download this repo and place inside the `Shared` folder.
 
-```bash
-$ composer require anam/phpcart
-```
-
-## Integrations
-
-Laravel 4 and Laravel 5 integrations
-
-Although PHPCart is framework agnostic, it does support Laravel out of the box and comes with a Service provider and Facade for easy integration.
-
-After you have installed the PHPCart, open the config/app.php file which is included with Laravel and add the following lines.
+open the config/app.php
 
 In the $providers array add the following service provider.
 
 ```php
-'Anam\Phpcart\CartServiceProvider'
+'Shared\Cart\CartServiceProvider'
 ```
 
 Add the facade of this package to the $aliases array.
 
 ```php
-'Cart' => 'Anam\Phpcart\Facades\Cart'
+'Cart' => 'Shared\Cart\Facades\Cart'
 ```
 
-You can now use this facade in place of instantiating the Cart yourself in the following examples.
+You can now use this facade in place of instantiating the Cart yourself.
 
 ## Usage
 
@@ -47,11 +39,7 @@ You can now use this facade in place of instantiating the Cart yourself in the f
 The add method required `id`, `name`, `price` and `quantity` keys. However, you can pass any data that your application required.
 
 ```php
-use Anam\Phpcart\Cart;
-
-$cart = new Cart();
-
-$cart->add([
+Cart::add([
     'id'       => 1001,
     'name'     => 'Skinny Jeans',
     'quantity' => 1,
@@ -63,7 +51,7 @@ $cart->add([
 
 
 ```php
-$cart->update([
+Cart::update([
     'id'       => 1001,
     'name'     => 'Hoodie'
 ]);
@@ -73,68 +61,68 @@ $cart->update([
 
 
 ```php
-$cart->updateQty(1001, 3);
+Cart::updateQty(1001, 3);
 ```
 
 ### Update price
 
 ```php
-$cart->updatePrice(1001, 30);
+Cart::updatePrice(1001, 30);
 ```
 
 ### Remove an Item
 
 ```php
-$cart->remove(1001);
+Cart::remove(1001);
 ```
 
 ### Get all Items
 
 ```php
-$cart->getItems();
+Cart::getItems();
 // or
-$cart->items();
+Cart::items();
 ```
 
 ### Get an Item
 
 ```php
-$cart->get(1001);
+Cart::get(1001);
 ```
 
 ### Determining if an Item exists in the cart
 
 ```php
-$cart->has(1001);
+Cart::has(1001);
 ```
 
 ### Get the total number of items in the cart
 
 ```php
-$cart->count();
+Cart::count();
 ```
 
 ### Get the total quantities of items in the cart
 
 ```php
-$cart->totalQuantity();
+Cart::totalQuantity();
 ```
 
 ### Total sum
 
 ```php
-$cart->getTotal();
+Cart::getTotal();
 ```
 
 ### Empty the cart
 
 ```php
-$cart->clear();
+Cart::clear();
 ```
 
 ### Multiple carts
 
-PHPCart supports multiple cart instances, so that you can have as many shopping cart instances on the same page as you want without any conflicts. 
+PHPCart supports multiple cart instances, so that you can have as many shopping cart instances on the same page as you want without any conflicts.
 
 ```php
 $cart = new Cart('cart1');
