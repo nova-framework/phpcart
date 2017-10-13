@@ -22,7 +22,8 @@ class Collection extends NovaCollection
         'id',
         'name',
         'price',
-        'quantity'
+        'quantity',
+        'type'
     ];
 
     public function setItems(array $items)
